@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activities - Soumik's Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">TS</a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="activities.html" class="active">Activities</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <section class="activities-section">
+      <div class="section-header">
+        <h1>Extra-Curricular Activities</h1>
+        <p>My achievements in sports and competitions</p>
+      </div>
+
+      <div class="activities-grid">
+        <div class="activity-card">
+          <div class="activity-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="activity-content">
+            <h3>Telecommunication Premier League (TPL)</h3>
+            <p class="date">2023</p>
+            <p class="details">University Department Cricket Tournament</p>
+            <div class="activity-highlights">
+              <span>Cricket</span>
+              <span>Team Captain</span>
+              <span>Runners-up</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-icon">
+            <i class="fas fa-medal"></i>
+          </div>
+          <div class="activity-content">
+            <h3>College Cricket Tournament</h3>
+            <p class="date">2021</p>
+            <p class="details">NDC Inter-Department Cricket Championship</p>
+            <div class="activity-highlights">
+              <span>Cricket</span>
+              <span>All-Rounder</span>
+              <span>Quarter-Finals</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="activity-content">
+            <h3>School Sports Championships</h3>
+            <p class="date">2019</p>
+            <p class="details">Inter-School Tournaments</p>
+            <div class="activity-highlights">
+              <span>Badminton</span>
+              <span>Cricket</span>
+              <span>Football</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://github.com/tajmimulsoumik008"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/tajmimul-soumik-503370274"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/tajmimul.soumik"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>&copy; 2025 Soumik. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
+      // Mobile menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      });
+
+      // Theme toggle functionality
+      const themeToggle = document.querySelector(".theme-toggle");
+      const themeIcon = themeToggle.querySelector("i");
+
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        updateThemeIcon(savedTheme);
+      }
+
+      // Theme toggle click handler
+      themeToggle.addEventListener("click", () => {
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateThemeIcon(newTheme);
+      });
+
+      // Update theme icon
+      function updateThemeIcon(theme) {
+        themeIcon.className = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
+      }
+    </script>
+  </body>
+</html> 
